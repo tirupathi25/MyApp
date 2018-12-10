@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D44A938202DACC8C5838F7E /* Pods_BM_MyBusinessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79AF2281F3F1B95CFE89480F /* Pods_BM_MyBusinessTests.framework */; };
+		590015076297C45E1050CC29 /* Pods_BM_MyBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A678BFBBF7A9917FE8EB6B5 /* Pods_BM_MyBusiness.framework */; };
+		ED27B79C21B649AC0016833D /* BusinessCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B79B21B649AC0016833D /* BusinessCollectionViewCell.m */; };
+		ED27B79F21B659F50016833D /* MyBusinessAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B79D21B659F50016833D /* MyBusinessAPI.m */; };
+		ED27B7A321B65AA90016833D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7A221B65AA90016833D /* Utilities.m */; };
+		ED27B7A921B65C0B0016833D /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7A521B65C0B0016833D /* NSString+Utils.m */; };
+		ED27B7AA21B65C0B0016833D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7A621B65C0B0016833D /* Reachability.m */; };
+		ED27B7B121B6873A0016833D /* OTPVeirfyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7B021B6873A0016833D /* OTPVeirfyViewController.m */; };
+		ED27B7B521B6AFDA0016833D /* CustomerPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7B421B6AFDA0016833D /* CustomerPlanViewController.m */; };
+		ED27B7B821B6AFF00016833D /* PlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7B721B6AFF00016833D /* PlanModel.m */; };
+		ED27B7BB21B6B1D90016833D /* PlansViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7BA21B6B1D90016833D /* PlansViewCell.m */; };
 		ED5F3FA821B5778200643390 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FA721B5778200643390 /* AppDelegate.m */; };
-		ED5F3FAB21B5778200643390 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FAA21B5778200643390 /* ViewController.m */; };
-		ED5F3FAE21B5778200643390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5F3FAC21B5778200643390 /* Main.storyboard */; };
+		ED5F3FAB21B5778200643390 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FAA21B5778200643390 /* LoginController.m */; };
 		ED5F3FB021B5778200643390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5F3FAF21B5778200643390 /* Assets.xcassets */; };
 		ED5F3FB321B5778200643390 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5F3FB121B5778200643390 /* LaunchScreen.storyboard */; };
 		ED5F3FB621B5778200643390 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FB521B5778200643390 /* main.m */; };
 		ED5F3FC021B5778200643390 /* BM_MyBusinessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FBF21B5778200643390 /* BM_MyBusinessTests.m */; };
 		ED5F3FCB21B5778200643390 /* BM_MyBusinessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FCA21B5778200643390 /* BM_MyBusinessUITests.m */; };
+		ED5F3FDB21B57A9D00643390 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FDA21B57A9D00643390 /* SWRevealViewController.m */; };
+		EDC47D6121B798CC00584E5E /* CreateBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */; };
+		EDD1317E21B5869E008470D0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1317D21B5869E008470D0 /* MenuViewController.m */; };
+		EDD1318121B586B4008470D0 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318021B586B4008470D0 /* MenuCell.m */; };
+		EDD1318421B586D2008470D0 /* MyBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318321B586D2008470D0 /* MyBusinessViewController.m */; };
+		EDD1318721B5880A008470D0 /* CustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318521B5880A008470D0 /* CustomNavigationViewController.m */; };
+		EDD131A921B5AA5D008470D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AB21B5AA5D008470D0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +52,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FE47CC7263DEA4EBB3B2DA0 /* Pods-BM-MyBusinessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BM-MyBusinessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BM-MyBusinessTests/Pods-BM-MyBusinessTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D2974A7583E24A49B33600A /* Pods-BM-MyBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BM-MyBusiness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BM-MyBusiness/Pods-BM-MyBusiness.debug.xcconfig"; sourceTree = "<group>"; };
+		54695674F17D9A4874C4651F /* Pods-BM-MyBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BM-MyBusiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-BM-MyBusiness/Pods-BM-MyBusiness.release.xcconfig"; sourceTree = "<group>"; };
+		79AF2281F3F1B95CFE89480F /* Pods_BM_MyBusinessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BM_MyBusinessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A678BFBBF7A9917FE8EB6B5 /* Pods_BM_MyBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BM_MyBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2B59B7211CE455F1760DA64 /* Pods-BM-MyBusinessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BM-MyBusinessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BM-MyBusinessTests/Pods-BM-MyBusinessTests.release.xcconfig"; sourceTree = "<group>"; };
+		ED27B79A21B649AC0016833D /* BusinessCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessCollectionViewCell.h; sourceTree = "<group>"; };
+		ED27B79B21B649AC0016833D /* BusinessCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessCollectionViewCell.m; sourceTree = "<group>"; };
+		ED27B79D21B659F50016833D /* MyBusinessAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBusinessAPI.m; sourceTree = "<group>"; };
+		ED27B79E21B659F50016833D /* MyBusinessAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBusinessAPI.h; sourceTree = "<group>"; };
+		ED27B7A121B65AA90016833D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		ED27B7A221B65AA90016833D /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		ED27B7A521B65C0B0016833D /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		ED27B7A621B65C0B0016833D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ED27B7A721B65C0B0016833D /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		ED27B7A821B65C0B0016833D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ED27B7AB21B675F70016833D /* APICalls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APICalls.h; sourceTree = "<group>"; };
+		ED27B7AF21B6873A0016833D /* OTPVeirfyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPVeirfyViewController.h; sourceTree = "<group>"; };
+		ED27B7B021B6873A0016833D /* OTPVeirfyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPVeirfyViewController.m; sourceTree = "<group>"; };
+		ED27B7B221B6A50A0016833D /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		ED27B7B321B6AFDA0016833D /* CustomerPlanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerPlanViewController.h; sourceTree = "<group>"; };
+		ED27B7B421B6AFDA0016833D /* CustomerPlanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerPlanViewController.m; sourceTree = "<group>"; };
+		ED27B7B621B6AFF00016833D /* PlanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanModel.h; sourceTree = "<group>"; };
+		ED27B7B721B6AFF00016833D /* PlanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanModel.m; sourceTree = "<group>"; };
+		ED27B7B921B6B1D90016833D /* PlansViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlansViewCell.h; sourceTree = "<group>"; };
+		ED27B7BA21B6B1D90016833D /* PlansViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlansViewCell.m; sourceTree = "<group>"; };
 		ED5F3FA321B5778200643390 /* BM-MyBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM-MyBusiness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5F3FA621B5778200643390 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED5F3FA721B5778200643390 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ED5F3FA921B5778200643390 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ED5F3FAA21B5778200643390 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		ED5F3FAD21B5778200643390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ED5F3FA921B5778200643390 /* LoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		ED5F3FAA21B5778200643390 /* LoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		ED5F3FAF21B5778200643390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED5F3FB221B5778200643390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED5F3FB421B5778200643390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +93,19 @@
 		ED5F3FC621B5778200643390 /* BM-MyBusinessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BM-MyBusinessUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5F3FCA21B5778200643390 /* BM_MyBusinessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BM_MyBusinessUITests.m; sourceTree = "<group>"; };
 		ED5F3FCC21B5778200643390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED5F3FD921B57A9D00643390 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		ED5F3FDA21B57A9D00643390 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		EDC47D5F21B798CC00584E5E /* CreateBusinessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBusinessViewController.h; sourceTree = "<group>"; };
+		EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBusinessViewController.m; sourceTree = "<group>"; };
+		EDD1317C21B5869E008470D0 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		EDD1317D21B5869E008470D0 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		EDD1317F21B586B4008470D0 /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		EDD1318021B586B4008470D0 /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		EDD1318221B586D2008470D0 /* MyBusinessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyBusinessViewController.h; sourceTree = "<group>"; };
+		EDD1318321B586D2008470D0 /* MyBusinessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyBusinessViewController.m; sourceTree = "<group>"; };
+		EDD1318521B5880A008470D0 /* CustomNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationViewController.m; sourceTree = "<group>"; };
+		EDD1318621B5880A008470D0 /* CustomNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationViewController.h; sourceTree = "<group>"; };
+		EDD131AA21B5AA5D008470D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590015076297C45E1050CC29 /* Pods_BM_MyBusiness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D44A938202DACC8C5838F7E /* Pods_BM_MyBusinessTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +135,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93A95D152037DABE64B79482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A678BFBBF7A9917FE8EB6B5 /* Pods_BM_MyBusiness.framework */,
+				79AF2281F3F1B95CFE89480F /* Pods_BM_MyBusinessTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E336238BC60CE6C6AA70389D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D2974A7583E24A49B33600A /* Pods-BM-MyBusiness.debug.xcconfig */,
+				54695674F17D9A4874C4651F /* Pods-BM-MyBusiness.release.xcconfig */,
+				3FE47CC7263DEA4EBB3B2DA0 /* Pods-BM-MyBusinessTests.debug.xcconfig */,
+				E2B59B7211CE455F1760DA64 /* Pods-BM-MyBusinessTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ED27B7A021B659FB0016833D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ED27B79E21B659F50016833D /* MyBusinessAPI.h */,
+				ED27B79D21B659F50016833D /* MyBusinessAPI.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		ED27B7A421B65AB10016833D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ED27B7A121B65AA90016833D /* Utilities.h */,
+				ED27B7A221B65AA90016833D /* Utilities.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		ED5F3F9A21B5778200643390 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +180,8 @@
 				ED5F3FBE21B5778200643390 /* BM-MyBusinessTests */,
 				ED5F3FC921B5778200643390 /* BM-MyBusinessUITests */,
 				ED5F3FA421B5778200643390 /* Products */,
+				E336238BC60CE6C6AA70389D /* Pods */,
+				93A95D152037DABE64B79482 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +198,13 @@
 		ED5F3FA521B5778200643390 /* BM-MyBusiness */ = {
 			isa = PBXGroup;
 			children = (
+				ED5F3FDC21B57AB100643390 /* ThirdPartyLibs */,
 				ED5F3FA621B5778200643390 /* AppDelegate.h */,
 				ED5F3FA721B5778200643390 /* AppDelegate.m */,
-				ED5F3FA921B5778200643390 /* ViewController.h */,
-				ED5F3FAA21B5778200643390 /* ViewController.m */,
-				ED5F3FAC21B5778200643390 /* Main.storyboard */,
+				ED27B7A421B65AB10016833D /* Models */,
+				EDD1317B21B58675008470D0 /* ViewControllers */,
+				ED27B7AB21B675F70016833D /* APICalls.h */,
+				ED27B7B221B6A50A0016833D /* Defines.h */,
 				ED5F3FAF21B5778200643390 /* Assets.xcassets */,
 				ED5F3FB121B5778200643390 /* LaunchScreen.storyboard */,
 				ED5F3FB421B5778200643390 /* Info.plist */,
@@ -132,6 +231,58 @@
 			path = "BM-MyBusinessUITests";
 			sourceTree = "<group>";
 		};
+		ED5F3FDC21B57AB100643390 /* ThirdPartyLibs */ = {
+			isa = PBXGroup;
+			children = (
+				ED27B7A721B65C0B0016833D /* NSString+Utils.h */,
+				ED27B7A521B65C0B0016833D /* NSString+Utils.m */,
+				ED27B7A821B65C0B0016833D /* Reachability.h */,
+				ED27B7A621B65C0B0016833D /* Reachability.m */,
+				ED5F3FDD21B57AE700643390 /* SWRevealViewController */,
+			);
+			name = ThirdPartyLibs;
+			sourceTree = "<group>";
+		};
+		ED5F3FDD21B57AE700643390 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ED5F3FD921B57A9D00643390 /* SWRevealViewController.h */,
+				ED5F3FDA21B57A9D00643390 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		EDD1317B21B58675008470D0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED27B7A021B659FB0016833D /* API */,
+				EDD1318621B5880A008470D0 /* CustomNavigationViewController.h */,
+				EDD1318521B5880A008470D0 /* CustomNavigationViewController.m */,
+				ED5F3FA921B5778200643390 /* LoginController.h */,
+				ED5F3FAA21B5778200643390 /* LoginController.m */,
+				ED27B7AF21B6873A0016833D /* OTPVeirfyViewController.h */,
+				ED27B7B021B6873A0016833D /* OTPVeirfyViewController.m */,
+				ED27B7B321B6AFDA0016833D /* CustomerPlanViewController.h */,
+				ED27B7B421B6AFDA0016833D /* CustomerPlanViewController.m */,
+				ED27B7B921B6B1D90016833D /* PlansViewCell.h */,
+				ED27B7BA21B6B1D90016833D /* PlansViewCell.m */,
+				ED27B7B621B6AFF00016833D /* PlanModel.h */,
+				ED27B7B721B6AFF00016833D /* PlanModel.m */,
+				EDD1318221B586D2008470D0 /* MyBusinessViewController.h */,
+				EDD1318321B586D2008470D0 /* MyBusinessViewController.m */,
+				ED27B79A21B649AC0016833D /* BusinessCollectionViewCell.h */,
+				ED27B79B21B649AC0016833D /* BusinessCollectionViewCell.m */,
+				EDC47D5F21B798CC00584E5E /* CreateBusinessViewController.h */,
+				EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */,
+				EDD1317C21B5869E008470D0 /* MenuViewController.h */,
+				EDD1317D21B5869E008470D0 /* MenuViewController.m */,
+				EDD1317F21B586B4008470D0 /* MenuCell.h */,
+				EDD1318021B586B4008470D0 /* MenuCell.m */,
+				EDD131AB21B5AA5D008470D0 /* Main.storyboard */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED5F3FCF21B5778200643390 /* Build configuration list for PBXNativeTarget "BM-MyBusiness" */;
 			buildPhases = (
+				47138C9AA17388E6DF0B7FF5 /* [CP] Check Pods Manifest.lock */,
 				ED5F3F9F21B5778200643390 /* Sources */,
 				ED5F3FA021B5778200643390 /* Frameworks */,
 				ED5F3FA121B5778200643390 /* Resources */,
+				81E31FA44C08F4025429B1C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED5F3FD221B5778200643390 /* Build configuration list for PBXNativeTarget "BM-MyBusinessTests" */;
 			buildPhases = (
+				595031CEBE83059F086FCFED /* [CP] Check Pods Manifest.lock */,
 				ED5F3FB721B5778200643390 /* Sources */,
 				ED5F3FB821B5778200643390 /* Frameworks */,
 				ED5F3FB921B5778200643390 /* Resources */,
+				74029548CD29E65328C35988 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,9 +390,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD131A921B5AA5D008470D0 /* Main.storyboard in Resources */,
 				ED5F3FB321B5778200643390 /* LaunchScreen.storyboard in Resources */,
 				ED5F3FB021B5778200643390 /* Assets.xcassets in Resources */,
-				ED5F3FAE21B5778200643390 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,14 +412,140 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		47138C9AA17388E6DF0B7FF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BM-MyBusiness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		595031CEBE83059F086FCFED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BM-MyBusinessTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74029548CD29E65328C35988 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BM-MyBusinessTests/Pods-BM-MyBusinessTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/LGAlertView/LGAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BM-MyBusinessTests/Pods-BM-MyBusinessTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81E31FA44C08F4025429B1C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BM-MyBusiness/Pods-BM-MyBusiness-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/LGAlertView/LGAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast/Toast.framework",
+				"${BUILT_PRODUCTS_DIR}/UIActivityIndicator-for-SDWebImage/UIActivityIndicator_for_SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LGAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIActivityIndicator_for_SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BM-MyBusiness/Pods-BM-MyBusiness-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED5F3F9F21B5778200643390 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED5F3FAB21B5778200643390 /* ViewController.m in Sources */,
+				ED27B7B121B6873A0016833D /* OTPVeirfyViewController.m in Sources */,
+				ED27B7AA21B65C0B0016833D /* Reachability.m in Sources */,
+				EDC47D6121B798CC00584E5E /* CreateBusinessViewController.m in Sources */,
+				ED27B7B821B6AFF00016833D /* PlanModel.m in Sources */,
+				EDD1318421B586D2008470D0 /* MyBusinessViewController.m in Sources */,
+				ED5F3FAB21B5778200643390 /* LoginController.m in Sources */,
+				EDD1318721B5880A008470D0 /* CustomNavigationViewController.m in Sources */,
 				ED5F3FB621B5778200643390 /* main.m in Sources */,
+				ED27B7B521B6AFDA0016833D /* CustomerPlanViewController.m in Sources */,
+				EDD1318121B586B4008470D0 /* MenuCell.m in Sources */,
+				ED27B79C21B649AC0016833D /* BusinessCollectionViewCell.m in Sources */,
+				ED27B7BB21B6B1D90016833D /* PlansViewCell.m in Sources */,
+				ED27B7A321B65AA90016833D /* Utilities.m in Sources */,
+				ED27B7A921B65C0B0016833D /* NSString+Utils.m in Sources */,
+				ED27B79F21B659F50016833D /* MyBusinessAPI.m in Sources */,
 				ED5F3FA821B5778200643390 /* AppDelegate.m in Sources */,
+				ED5F3FDB21B57A9D00643390 /* SWRevealViewController.m in Sources */,
+				EDD1317E21B5869E008470D0 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,20 +581,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED5F3FAC21B5778200643390 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED5F3FAD21B5778200643390 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED5F3FB121B5778200643390 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ED5F3FB221B5778200643390 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EDD131AB21B5AA5D008470D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDD131AA21B5AA5D008470D0 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -433,6 +714,7 @@
 		};
 		ED5F3FD021B5778200643390 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D2974A7583E24A49B33600A /* Pods-BM-MyBusiness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +732,7 @@
 		};
 		ED5F3FD121B5778200643390 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54695674F17D9A4874C4651F /* Pods-BM-MyBusiness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -467,6 +750,7 @@
 		};
 		ED5F3FD321B5778200643390 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FE47CC7263DEA4EBB3B2DA0 /* Pods-BM-MyBusinessTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +770,7 @@
 		};
 		ED5F3FD421B5778200643390 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2B59B7211CE455F1760DA64 /* Pods-BM-MyBusinessTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

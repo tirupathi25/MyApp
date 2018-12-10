@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "IQKeyboardManager.h"
+#import "LoginController.h"
+#import "MyBusinessViewController.h"
+#import "Defines.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [IQKeyboardManager sharedManager].enable = YES;
+    
+    
+    //get uuid
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:UUID] == NULL) {
+        
+        [[NSUserDefaults standardUserDefaults] setObject:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forKey:UUID];
+    }
+    
+    //set root views
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY] != NULL) {
+        
+        MyBusinessViewController *mapView = [STORYBOARD instantiateViewControllerWithIdentifier:@"dashboard"];
+        self.window.rootViewController = mapView;
+        
+    } else {
+        
+        LoginController *loginView = [STORYBOARD instantiateViewControllerWithIdentifier:@"LoginControllerNavi"];
+        self.window.rootViewController = loginView;
+        
+    }
+    
     return YES;
 }
 
