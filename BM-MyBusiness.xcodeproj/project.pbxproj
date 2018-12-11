@@ -18,6 +18,12 @@
 		ED27B7B521B6AFDA0016833D /* CustomerPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7B421B6AFDA0016833D /* CustomerPlanViewController.m */; };
 		ED27B7B821B6AFF00016833D /* PlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7B721B6AFF00016833D /* PlanModel.m */; };
 		ED27B7BB21B6B1D90016833D /* PlansViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED27B7BA21B6B1D90016833D /* PlansViewCell.m */; };
+		ED55FD3121BFB88A00D08425 /* CreateEmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3021BFB88A00D08425 /* CreateEmployeeViewController.m */; };
+		ED55FD3821BFB9B800D08425 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3421BFB9B800D08425 /* JVFloatLabeledTextField.m */; };
+		ED55FD3921BFB9B800D08425 /* JVFloatLabeledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3621BFB9B800D08425 /* JVFloatLabeledTextView.m */; };
+		ED55FD3A21BFB9B800D08425 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3721BFB9B800D08425 /* NSString+TextDirectionality.m */; };
+		ED55FD3D21BFE3DF00D08425 /* EmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3C21BFE3DF00D08425 /* EmployeesViewController.m */; };
+		ED55FD4021BFE5FF00D08425 /* EmployeesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55FD3F21BFE5FF00D08425 /* EmployeesViewCell.m */; };
 		ED5F3FA821B5778200643390 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FA721B5778200643390 /* AppDelegate.m */; };
 		ED5F3FAB21B5778200643390 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FAA21B5778200643390 /* LoginController.m */; };
 		ED5F3FB021B5778200643390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5F3FAF21B5778200643390 /* Assets.xcassets */; };
@@ -78,6 +84,18 @@
 		ED27B7B721B6AFF00016833D /* PlanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanModel.m; sourceTree = "<group>"; };
 		ED27B7B921B6B1D90016833D /* PlansViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlansViewCell.h; sourceTree = "<group>"; };
 		ED27B7BA21B6B1D90016833D /* PlansViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlansViewCell.m; sourceTree = "<group>"; };
+		ED55FD2F21BFB88A00D08425 /* CreateEmployeeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateEmployeeViewController.h; sourceTree = "<group>"; };
+		ED55FD3021BFB88A00D08425 /* CreateEmployeeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateEmployeeViewController.m; sourceTree = "<group>"; };
+		ED55FD3221BFB9B800D08425 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		ED55FD3321BFB9B800D08425 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		ED55FD3421BFB9B800D08425 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		ED55FD3521BFB9B800D08425 /* JVFloatLabeledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextView.h; sourceTree = "<group>"; };
+		ED55FD3621BFB9B800D08425 /* JVFloatLabeledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextView.m; sourceTree = "<group>"; };
+		ED55FD3721BFB9B800D08425 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
+		ED55FD3B21BFE3DF00D08425 /* EmployeesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmployeesViewController.h; sourceTree = "<group>"; };
+		ED55FD3C21BFE3DF00D08425 /* EmployeesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmployeesViewController.m; sourceTree = "<group>"; };
+		ED55FD3E21BFE5FF00D08425 /* EmployeesViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmployeesViewCell.h; sourceTree = "<group>"; };
+		ED55FD3F21BFE5FF00D08425 /* EmployeesViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmployeesViewCell.m; sourceTree = "<group>"; };
 		ED5F3FA321B5778200643390 /* BM-MyBusiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BM-MyBusiness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5F3FA621B5778200643390 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ED5F3FA721B5778200643390 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -234,6 +252,12 @@
 		ED5F3FDC21B57AB100643390 /* ThirdPartyLibs */ = {
 			isa = PBXGroup;
 			children = (
+				ED55FD3221BFB9B800D08425 /* JVFloatLabeledTextField.h */,
+				ED55FD3421BFB9B800D08425 /* JVFloatLabeledTextField.m */,
+				ED55FD3521BFB9B800D08425 /* JVFloatLabeledTextView.h */,
+				ED55FD3621BFB9B800D08425 /* JVFloatLabeledTextView.m */,
+				ED55FD3321BFB9B800D08425 /* NSString+TextDirectionality.h */,
+				ED55FD3721BFB9B800D08425 /* NSString+TextDirectionality.m */,
 				ED27B7A721B65C0B0016833D /* NSString+Utils.h */,
 				ED27B7A521B65C0B0016833D /* NSString+Utils.m */,
 				ED27B7A821B65C0B0016833D /* Reachability.h */,
@@ -274,6 +298,12 @@
 				ED27B79B21B649AC0016833D /* BusinessCollectionViewCell.m */,
 				EDC47D5F21B798CC00584E5E /* CreateBusinessViewController.h */,
 				EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */,
+				ED55FD3B21BFE3DF00D08425 /* EmployeesViewController.h */,
+				ED55FD3C21BFE3DF00D08425 /* EmployeesViewController.m */,
+				ED55FD3E21BFE5FF00D08425 /* EmployeesViewCell.h */,
+				ED55FD3F21BFE5FF00D08425 /* EmployeesViewCell.m */,
+				ED55FD2F21BFB88A00D08425 /* CreateEmployeeViewController.h */,
+				ED55FD3021BFB88A00D08425 /* CreateEmployeeViewController.m */,
 				EDD1317C21B5869E008470D0 /* MenuViewController.h */,
 				EDD1317D21B5869E008470D0 /* MenuViewController.m */,
 				EDD1317F21B586B4008470D0 /* MenuCell.h */,
@@ -536,13 +566,19 @@
 				ED5F3FAB21B5778200643390 /* LoginController.m in Sources */,
 				EDD1318721B5880A008470D0 /* CustomNavigationViewController.m in Sources */,
 				ED5F3FB621B5778200643390 /* main.m in Sources */,
+				ED55FD3821BFB9B800D08425 /* JVFloatLabeledTextField.m in Sources */,
+				ED55FD3921BFB9B800D08425 /* JVFloatLabeledTextView.m in Sources */,
+				ED55FD3D21BFE3DF00D08425 /* EmployeesViewController.m in Sources */,
 				ED27B7B521B6AFDA0016833D /* CustomerPlanViewController.m in Sources */,
 				EDD1318121B586B4008470D0 /* MenuCell.m in Sources */,
 				ED27B79C21B649AC0016833D /* BusinessCollectionViewCell.m in Sources */,
 				ED27B7BB21B6B1D90016833D /* PlansViewCell.m in Sources */,
+				ED55FD3121BFB88A00D08425 /* CreateEmployeeViewController.m in Sources */,
 				ED27B7A321B65AA90016833D /* Utilities.m in Sources */,
+				ED55FD3A21BFB9B800D08425 /* NSString+TextDirectionality.m in Sources */,
 				ED27B7A921B65C0B0016833D /* NSString+Utils.m in Sources */,
 				ED27B79F21B659F50016833D /* MyBusinessAPI.m in Sources */,
+				ED55FD4021BFE5FF00D08425 /* EmployeesViewCell.m in Sources */,
 				ED5F3FA821B5778200643390 /* AppDelegate.m in Sources */,
 				ED5F3FDB21B57A9D00643390 /* SWRevealViewController.m in Sources */,
 				EDD1317E21B5869E008470D0 /* MenuViewController.m in Sources */,

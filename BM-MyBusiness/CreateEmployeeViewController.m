@@ -1,52 +1,56 @@
 //
-//  CreateBusinessViewController.m
+//  CreateEmployeeViewController.m
 //  BM-MyBusiness
 //
-//  Created by Tirupathi Mandali on 12/5/18.
+//  Created by Tirupathi Mandali on 12/11/18.
 //  Copyright © 2018 Tirupathi Mandali. All rights reserved.
 //
 
-#import "CreateBusinessViewController.h"
-#import "LGAlertView.h"
+#import "CreateEmployeeViewController.h"
 #import "Defines.h"
 #import "Utilities.h"
-@interface CreateBusinessViewController ()
+#import "LGAlertView.h"
+@interface CreateEmployeeViewController ()
 
 @end
 
-@implementation CreateBusinessViewController
+@implementation CreateEmployeeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-  
-    self.primaryDetailsView.layer.cornerRadius = self.otherDetailsView.layer.cornerRadius = self.businesshoursView.layer.cornerRadius = 6;
-    self.createButton.layer.cornerRadius = 6;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    self.logoImageview.layer.borderWidth = 2;
-    self.logoImageview.layer.borderColor = white_color.CGColor;
-    self.logoImageview.clipsToBounds = YES;
-    self.logoImageview.layer.cornerRadius = 50;
-    self.logoImageview.image = [UIImage imageNamed:@"addbusiness"];
+    //add cell separator style
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    //method for set view
-    [self createBusinessFormSetup];
+    
+    //add left bar button on navigation bar
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(handelCreateAndUpdateEmployee)];
+    
+    //form setup
+    [self employeesFormSetup];
+}
+
+//method to create and update employess
+-(void)handelCreateAndUpdateEmployee{
     
 }
--(void)createBusinessFormSetup{
+//setup method
+-(void)employeesFormSetup{
     
-    UITapGestureRecognizer *countryGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSelectCountry)];
-    countryGesture.numberOfTapsRequired = 1;
-    self.countryLabel.userInteractionEnabled = YES;
-    [self.countryLabel addGestureRecognizer:countryGesture];
+    //text fields
     
-    
-    UITapGestureRecognizer *stateGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSelectState)];
-    stateGesture.numberOfTapsRequired = 1;
-    self.stateLabel.userInteractionEnabled = YES;
-    [self.stateLabel addGestureRecognizer:countryGesture];
+    [UTILITIES addBottomborder:self.firstNameField withY:46 andwidth:self.view.frame.size.width-163];
+    [UTILITIES addBottomborder:self.lastNameField withY:46 andwidth:self.view.frame.size.width-163];
+    [UTILITIES addBottomborder:self.mobileField withY:46 andwidth:self.view.frame.size.width-163];
+    [UTILITIES addBottomborder:self.priorityField withY:46 andwidth:self.view.frame.size.width-163];
     
     //add tags for checkbox
     self.sundayHolidayBox.tag = 1;
@@ -74,16 +78,6 @@
     self.thursdayToTimeLabel.tag = 5;
     self.fridayToTimeLabel.tag = 6;
     self.saturdayToTimeLabel.tag = 7;
-    
-    
-    //default value for check
-    self.sundayHolidayBox.selected = NO;
-    self.mondayHolidayBox.selected = NO;
-    self.tuesdayHolidayBox.selected = NO;
-    self.wednsdayHolidayBox.selected = NO;
-    self.thursdayHolidayBox.selected = NO;
-    self.fridayHolidayBox.selected = NO;
-    self.saturdayHolidayBox.selected = NO;
     
     //gestures for from time labels
     
@@ -123,7 +117,7 @@
     [self.thursdayFromTimeLAbel addGestureRecognizer:fromTimeGesture5];
     [self.fridayFromTimeLAbel addGestureRecognizer:fromTimeGesture6];
     [self.saturdayFromTimeLAbel addGestureRecognizer:fromTimeGesture7];
-
+    
     
     //gestures for To time labels
     
@@ -163,12 +157,21 @@
     [self.thursdayToTimeLabel addGestureRecognizer:toTimeGesture5];
     [self.fridayToTimeLabel addGestureRecognizer:toTimeGesture6];
     [self.saturdayToTimeLabel addGestureRecognizer:toTimeGesture7];
-
-   //actions for check box
+    
+    //default value for check
+    self.sundayHolidayBox.selected = NO;
+    self.mondayHolidayBox.selected = NO;
+    self.tuesdayHolidayBox.selected = NO;
+    self.wednsdayHolidayBox.selected = NO;
+    self.thursdayHolidayBox.selected = NO;
+    self.fridayHolidayBox.selected = NO;
+    self.saturdayHolidayBox.selected = NO;
+    
+    //actions for check box
     
     [self.sundayHolidayBox setImage:[[UIImage imageNamed:@"checkbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
     [self.sundayHolidayBox setImage:[[UIImage imageNamed:@"uncheckbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-
+    
     [self.mondayHolidayBox setImage:[[UIImage imageNamed:@"checkbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
     [self.mondayHolidayBox setImage:[[UIImage imageNamed:@"uncheckbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     
@@ -204,19 +207,28 @@
     [self.fridayHolidayBox addTarget:self action:@selector(handleHolidayCheckAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.saturdayHolidayBox addTarget:self action:@selector(handleHolidayCheckAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    //upload image action
-    [self.uploadImageBtn addTarget:self action:@selector(handleUploadImage) forControlEvents:UIControlEventTouchUpInside];
+    //Same as Business hours check
+    [self.sameAsBusinessHoursBtn addTarget:self
+                                    action:@selector(handleSameasBusinessHoursCheck:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.createButton addTarget:self action:@selector(handleCreateBusiness) forControlEvents:UIControlEventTouchUpInside];
-    [self.createButton setTitle:@"Continue" forState:UIControlStateNormal];
+    self.sameAsBusinessHoursBtn.selected = NO;
+    [self.sameAsBusinessHoursBtn setImage:[[UIImage imageNamed:@"checkbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
+    [self.sameAsBusinessHoursBtn setImage:[[UIImage imageNamed:@"uncheckbox"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.sameAsBusinessHoursBtn.tintColor = blue_color;
+    
+    self.profileImageView.image = [UIImage imageNamed:@"profilepic"];
+    self.profileImageView.layer.cornerRadius = 60;
+    self.profileImageView.layer.borderColor = gray_color.CGColor;
+    self.profileImageView.layer.borderWidth = 2;
+    
+    
+    //service view border
+    
 }
-//create business
--(void)handleCreateBusiness{
+//Same as Business hours check
+-(void)handleSameasBusinessHoursCheck:(UIButton *)sender{
     
-    
-}
-//upload image
--(void)handleUploadImage{
+    sender.selected = !sender.selected;
     
 }
 //holiday
@@ -225,13 +237,13 @@
     if (sender.selected) {
         sender.selected = NO;
         
-
+        
         switch (sender.tag) {
             case 1:
                 self.sundayFromTimeLAbel.hidden = NO;
                 self.sundayToTimeLabel.hidden = NO;
                 break;
-             case 2:
+            case 2:
                 self.mondayFromTimeLAbel.hidden = NO;
                 self.mondayToTimeLabel.hidden = NO;
                 break;
@@ -302,7 +314,7 @@
 -(void)handleFromTime:(UITapGestureRecognizer *)sender{
     
     UILabel *label = (UILabel *)sender.view;
-  
+    
     [self.view endEditing:YES];
     UIDatePicker *datePicker;
     datePicker = [UIDatePicker new];
@@ -342,12 +354,58 @@
     [timeAlertView showAnimated:YES completionHandler:nil];
     
 }
-//select country
--(void)handleSelectCountry{
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-}
-//select state
--(void)handleSelectState{
+    // Configure the cell...
     
+    return cell;
 }
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 @end

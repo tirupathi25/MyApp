@@ -267,7 +267,7 @@
 {
     CALayer *layer = [CALayer layer];
     layer.borderWidth = 0.5f;
-    layer.borderColor = [UIColor  colorWithRed:66.0/255.0 green:139.0/255.0 blue:202.0/255.0 alpha:0.5].CGColor;
+    layer.borderColor = dark_gray_color.CGColor;
     layer.frame = CGRectMake(0, y, width, 0.5f);
     [textfield.layer insertSublayer:layer atIndex:0];
     
@@ -417,6 +417,7 @@
 //
 //    }
 }
+
 -(NSString *)convertToString:(id)convert
 {
     return [NSString stringWithFormat:@"%@",convert];

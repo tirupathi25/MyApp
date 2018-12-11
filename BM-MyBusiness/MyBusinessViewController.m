@@ -7,11 +7,13 @@
 //
 
 #import "MyBusinessViewController.h"
+#import "EmployeesViewController.h"
 #import "SWRevealViewController/SWRevealViewController.h"
 #import "MenuViewController.h"
 #import "CustomNavigationViewController.h"
 #import "LoginController.h"
 #import "BusinessCollectionViewCell.h"
+#import "CreateBusinessViewController.h"
 #import "Defines.h"
 @interface MyBusinessViewController ()<MenuDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -89,6 +91,10 @@
     -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         selectedIndex = indexPath.row;
         [self.collectionview reloadData];
+        
+        CreateBusinessViewController *otpview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
+        [self.navigationController pushViewController:otpview animated:YES];
+        
     }
     // this method overrides the changes you have made to inc or dec the size of cell using storyboard.
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:   (UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,7 +103,7 @@
 
 #pragma Menu Delegate methods
 -(void)handleMyBusiness{
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)handleAddBusiness{
     
@@ -110,7 +116,8 @@
     
 }
 -(void)handleShowEmployees{
-    
+    EmployeesViewController *employeesView = [STORYBOARD instantiateViewControllerWithIdentifier:@"EmployeesViewController"];
+    [self.navigationController pushViewController:employeesView animated:YES];
 }
 -(void)handleShowBreaktimeSetup{
     

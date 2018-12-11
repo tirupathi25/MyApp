@@ -185,9 +185,7 @@
 }
 -(void)login:(UIButton *)sender{
 
-        CreateBusinessViewController *otpview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
-    [self.navigationController pushViewController:otpview animated:YES];
-    return;
+        
     
     if ([sender.titleLabel.text isEqualToString:SIGN_IN]) {
         
