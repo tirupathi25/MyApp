@@ -14,6 +14,8 @@
 #import "LoginController.h"
 #import "BusinessCollectionViewCell.h"
 #import "CreateBusinessViewController.h"
+#import "BusinessTemplatesViewController.h"
+#import "ServiceCategoriesViewController.h"
 #import "Defines.h"
 @interface MyBusinessViewController ()<MenuDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -106,14 +108,16 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)handleAddBusiness{
-    
+    BusinessTemplatesViewController *templatesView = [STORYBOARD instantiateViewControllerWithIdentifier:@"BusinessTemplatesViewController"];
+    [self.navigationController pushViewController:templatesView animated:YES];
 }
 -(void)handleAppointment{
    
     
 }
 -(void)handleServices{
-    
+    ServiceCategoriesViewController *serviceView = [STORYBOARD instantiateViewControllerWithIdentifier:@"ServiceCategoriesViewController"];
+    [self.navigationController pushViewController:serviceView animated:YES];
 }
 -(void)handleShowEmployees{
     EmployeesViewController *employeesView = [STORYBOARD instantiateViewControllerWithIdentifier:@"EmployeesViewController"];

@@ -38,6 +38,14 @@
 		EDD1318421B586D2008470D0 /* MyBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318321B586D2008470D0 /* MyBusinessViewController.m */; };
 		EDD1318721B5880A008470D0 /* CustomNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318521B5880A008470D0 /* CustomNavigationViewController.m */; };
 		EDD131A921B5AA5D008470D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD131AB21B5AA5D008470D0 /* Main.storyboard */; };
+		EDEDEF3821C1288500530F43 /* BusinessTemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF3721C1288500530F43 /* BusinessTemplatesViewController.m */; };
+		EDEDEF3B21C1301B00530F43 /* BusinessesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF3A21C1301B00530F43 /* BusinessesModel.m */; };
+		EDEDEF3E21C13A3C00530F43 /* ServicesCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF3D21C13A3C00530F43 /* ServicesCategoryModel.m */; };
+		EDEDEF4121C13A9700530F43 /* ServicesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF4021C13A9700530F43 /* ServicesModel.m */; };
+		EDEDEF4421C1446700530F43 /* ServiceCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF4321C1446700530F43 /* ServiceCategoriesViewController.m */; };
+		EDEDEF4621C1449000530F43 /* ServiceCategoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDEDEF4521C1449000530F43 /* ServiceCategoryHeader.xib */; };
+		EDEDEF4921C1450E00530F43 /* ServiceCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF4821C1450E00530F43 /* ServiceCategoryView.m */; };
+		EDEDEF4C21C14B8F00530F43 /* ServiceCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDEDEF4B21C14B8F00530F43 /* ServiceCategoryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +132,21 @@
 		EDD1318521B5880A008470D0 /* CustomNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationViewController.m; sourceTree = "<group>"; };
 		EDD1318621B5880A008470D0 /* CustomNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationViewController.h; sourceTree = "<group>"; };
 		EDD131AA21B5AA5D008470D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDEDEF3621C1288500530F43 /* BusinessTemplatesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessTemplatesViewController.h; sourceTree = "<group>"; };
+		EDEDEF3721C1288500530F43 /* BusinessTemplatesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessTemplatesViewController.m; sourceTree = "<group>"; };
+		EDEDEF3921C1301B00530F43 /* BusinessesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessesModel.h; sourceTree = "<group>"; };
+		EDEDEF3A21C1301B00530F43 /* BusinessesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessesModel.m; sourceTree = "<group>"; };
+		EDEDEF3C21C13A3C00530F43 /* ServicesCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesCategoryModel.h; sourceTree = "<group>"; };
+		EDEDEF3D21C13A3C00530F43 /* ServicesCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesCategoryModel.m; sourceTree = "<group>"; };
+		EDEDEF3F21C13A9700530F43 /* ServicesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesModel.h; sourceTree = "<group>"; };
+		EDEDEF4021C13A9700530F43 /* ServicesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesModel.m; sourceTree = "<group>"; };
+		EDEDEF4221C1446700530F43 /* ServiceCategoriesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceCategoriesViewController.h; sourceTree = "<group>"; };
+		EDEDEF4321C1446700530F43 /* ServiceCategoriesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceCategoriesViewController.m; sourceTree = "<group>"; };
+		EDEDEF4521C1449000530F43 /* ServiceCategoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCategoryHeader.xib; sourceTree = "<group>"; };
+		EDEDEF4721C1450E00530F43 /* ServiceCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceCategoryView.h; sourceTree = "<group>"; };
+		EDEDEF4821C1450E00530F43 /* ServiceCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceCategoryView.m; sourceTree = "<group>"; };
+		EDEDEF4A21C14B8F00530F43 /* ServiceCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceCategoryCell.h; sourceTree = "<group>"; };
+		EDEDEF4B21C14B8F00530F43 /* ServiceCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceCategoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +315,20 @@
 				ED27B7BA21B6B1D90016833D /* PlansViewCell.m */,
 				ED27B7B621B6AFF00016833D /* PlanModel.h */,
 				ED27B7B721B6AFF00016833D /* PlanModel.m */,
+				EDEDEF3921C1301B00530F43 /* BusinessesModel.h */,
+				EDEDEF3A21C1301B00530F43 /* BusinessesModel.m */,
+				EDEDEF3C21C13A3C00530F43 /* ServicesCategoryModel.h */,
+				EDEDEF3D21C13A3C00530F43 /* ServicesCategoryModel.m */,
+				EDEDEF3F21C13A9700530F43 /* ServicesModel.h */,
+				EDEDEF4021C13A9700530F43 /* ServicesModel.m */,
+				EDEDEF4721C1450E00530F43 /* ServiceCategoryView.h */,
+				EDEDEF4821C1450E00530F43 /* ServiceCategoryView.m */,
+				EDEDEF4221C1446700530F43 /* ServiceCategoriesViewController.h */,
+				EDEDEF4321C1446700530F43 /* ServiceCategoriesViewController.m */,
+				EDEDEF4A21C14B8F00530F43 /* ServiceCategoryCell.h */,
+				EDEDEF4B21C14B8F00530F43 /* ServiceCategoryCell.m */,
+				EDEDEF3621C1288500530F43 /* BusinessTemplatesViewController.h */,
+				EDEDEF3721C1288500530F43 /* BusinessTemplatesViewController.m */,
 				EDD1318221B586D2008470D0 /* MyBusinessViewController.h */,
 				EDD1318321B586D2008470D0 /* MyBusinessViewController.m */,
 				ED27B79A21B649AC0016833D /* BusinessCollectionViewCell.h */,
@@ -309,6 +346,7 @@
 				EDD1317F21B586B4008470D0 /* MenuCell.h */,
 				EDD1318021B586B4008470D0 /* MenuCell.m */,
 				EDD131AB21B5AA5D008470D0 /* Main.storyboard */,
+				EDEDEF4521C1449000530F43 /* ServiceCategoryHeader.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -422,6 +460,7 @@
 			files = (
 				EDD131A921B5AA5D008470D0 /* Main.storyboard in Resources */,
 				ED5F3FB321B5778200643390 /* LaunchScreen.storyboard in Resources */,
+				EDEDEF4621C1449000530F43 /* ServiceCategoryHeader.xib in Resources */,
 				ED5F3FB021B5778200643390 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEDEF4921C1450E00530F43 /* ServiceCategoryView.m in Sources */,
 				ED27B7B121B6873A0016833D /* OTPVeirfyViewController.m in Sources */,
 				ED27B7AA21B65C0B0016833D /* Reachability.m in Sources */,
 				EDC47D6121B798CC00584E5E /* CreateBusinessViewController.m in Sources */,
@@ -567,20 +607,26 @@
 				EDD1318721B5880A008470D0 /* CustomNavigationViewController.m in Sources */,
 				ED5F3FB621B5778200643390 /* main.m in Sources */,
 				ED55FD3821BFB9B800D08425 /* JVFloatLabeledTextField.m in Sources */,
+				EDEDEF4C21C14B8F00530F43 /* ServiceCategoryCell.m in Sources */,
 				ED55FD3921BFB9B800D08425 /* JVFloatLabeledTextView.m in Sources */,
 				ED55FD3D21BFE3DF00D08425 /* EmployeesViewController.m in Sources */,
 				ED27B7B521B6AFDA0016833D /* CustomerPlanViewController.m in Sources */,
+				EDEDEF4421C1446700530F43 /* ServiceCategoriesViewController.m in Sources */,
 				EDD1318121B586B4008470D0 /* MenuCell.m in Sources */,
 				ED27B79C21B649AC0016833D /* BusinessCollectionViewCell.m in Sources */,
 				ED27B7BB21B6B1D90016833D /* PlansViewCell.m in Sources */,
+				EDEDEF4121C13A9700530F43 /* ServicesModel.m in Sources */,
+				EDEDEF3B21C1301B00530F43 /* BusinessesModel.m in Sources */,
 				ED55FD3121BFB88A00D08425 /* CreateEmployeeViewController.m in Sources */,
 				ED27B7A321B65AA90016833D /* Utilities.m in Sources */,
 				ED55FD3A21BFB9B800D08425 /* NSString+TextDirectionality.m in Sources */,
+				EDEDEF3821C1288500530F43 /* BusinessTemplatesViewController.m in Sources */,
 				ED27B7A921B65C0B0016833D /* NSString+Utils.m in Sources */,
 				ED27B79F21B659F50016833D /* MyBusinessAPI.m in Sources */,
 				ED55FD4021BFE5FF00D08425 /* EmployeesViewCell.m in Sources */,
 				ED5F3FA821B5778200643390 /* AppDelegate.m in Sources */,
 				ED5F3FDB21B57A9D00643390 /* SWRevealViewController.m in Sources */,
+				EDEDEF3E21C13A3C00530F43 /* ServicesCategoryModel.m in Sources */,
 				EDD1317E21B5869E008470D0 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
