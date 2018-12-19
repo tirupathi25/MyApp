@@ -73,6 +73,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIButton *createButton;
 
+
+//properties
+@property (strong,nonatomic) NSString *selectedBusinessId;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -32,6 +32,7 @@
 		ED5F3FC021B5778200643390 /* BM_MyBusinessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FBF21B5778200643390 /* BM_MyBusinessTests.m */; };
 		ED5F3FCB21B5778200643390 /* BM_MyBusinessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FCA21B5778200643390 /* BM_MyBusinessUITests.m */; };
 		ED5F3FDB21B57A9D00643390 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5F3FDA21B57A9D00643390 /* SWRevealViewController.m */; };
+		ED72B90221C48A72007663E1 /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = ED72B90121C48A72007663E1 /* SharedData.m */; };
 		EDC47D6121B798CC00584E5E /* CreateBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */; };
 		EDD1317E21B5869E008470D0 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1317D21B5869E008470D0 /* MenuViewController.m */; };
 		EDD1318121B586B4008470D0 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD1318021B586B4008470D0 /* MenuCell.m */; };
@@ -121,6 +122,8 @@
 		ED5F3FCC21B5778200643390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED5F3FD921B57A9D00643390 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		ED5F3FDA21B57A9D00643390 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		ED72B90021C48A72007663E1 /* SharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedData.h; sourceTree = "<group>"; };
+		ED72B90121C48A72007663E1 /* SharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedData.m; sourceTree = "<group>"; };
 		EDC47D5F21B798CC00584E5E /* CreateBusinessViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateBusinessViewController.h; sourceTree = "<group>"; };
 		EDC47D6021B798CC00584E5E /* CreateBusinessViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateBusinessViewController.m; sourceTree = "<group>"; };
 		EDD1317C21B5869E008470D0 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 		ED27B7A421B65AB10016833D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED72B90021C48A72007663E1 /* SharedData.h */,
+				ED72B90121C48A72007663E1 /* SharedData.m */,
 				ED27B7A121B65AA90016833D /* Utilities.h */,
 				ED27B7A221B65AA90016833D /* Utilities.m */,
 			);
@@ -621,6 +626,7 @@
 				ED27B7A321B65AA90016833D /* Utilities.m in Sources */,
 				ED55FD3A21BFB9B800D08425 /* NSString+TextDirectionality.m in Sources */,
 				EDEDEF3821C1288500530F43 /* BusinessTemplatesViewController.m in Sources */,
+				ED72B90221C48A72007663E1 /* SharedData.m in Sources */,
 				ED27B7A921B65C0B0016833D /* NSString+Utils.m in Sources */,
 				ED27B79F21B659F50016833D /* MyBusinessAPI.m in Sources */,
 				ED55FD4021BFE5FF00D08425 /* EmployeesViewCell.m in Sources */,

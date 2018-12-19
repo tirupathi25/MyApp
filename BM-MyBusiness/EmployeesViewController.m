@@ -11,20 +11,24 @@
 #import "EmployeesViewCell.h"
 #import "MyBusinessAPI.h"
 #import "Utilities.h"
+#import "APICalls.h"
 #import "SWRevealViewController.h"
 @interface EmployeesViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
 @implementation EmployeesViewController
-
+{
+    NSString *errorMessage;
+    NSMutableArray *employeesList;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
-    
+    employeesList = [NSMutableArray new];
     
     // create custom menu button with image
     UIButton *menu_btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -47,6 +51,58 @@
     self.tableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(handleNewEmployee)];
+    
+    [self getEmployeesList];
+}
+
+-(void)getEmployeesList{
+    
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY]);
+    // check network connection
+    if ([UTILITIES connected]) {
+        
+        [UTILITIES showHud:self.view withText:@"Loading.."];
+        // API call tpo get members
+        [[MyBusinessAPI sharedTrxadeAPIClient] postCall:GET_EMPLOYEES_LIST withParameters:@{@"publisherId":[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY],@"businessId":[[NSUserDefaults standardUserDefaults] objectForKey:SELECTED_BUSINESS_ID]} block:^(id responseObject, NSError *error) {
+            
+            [UTILITIES hideHUDInView:self.view];
+            if (error) {
+                [UTILITIES showTostAlert:error.localizedDescription andInView:self.view];
+                [self.tableview reloadData];
+            } else {
+                
+                if ([[responseObject objectForKey:@"code"] integerValue] == SUCCESS_CODE) {
+                    
+                    NSArray *result = [responseObject objectForKey:@"result"];
+                    
+                    if (result.count != 0) {
+                        
+                        [self->employeesList addObjectsFromArray:result];
+                        
+                    }
+                    
+                    [self.tableview reloadData];
+                    
+                } else {
+                    
+                    [UTILITIES showTostAlert:[responseObject objectForKey:@"message"] andInView:self.view];
+                    self->errorMessage = [responseObject objectForKey:@"message"];
+                    
+                    [self.tableview reloadData];
+                }
+                
+                
+            }
+            
+        }];
+        
+    }
+    else
+    {
+        self->errorMessage = CONNECTION_MESSAGE;
+        [UTILITIES showNetworkAlertonView:self];
+        [self.tableview reloadData];
+    }
 }
 //menu button action
 -(void)tapMenu:(UIButton *)sender
@@ -65,7 +121,24 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    
+    if (employeesList.count != 0) {
+        
+        self.tableview.backgroundView = nil;
+        return employeesList.count;
+        
+    } else {
+        
+        UILabel *noDataFound_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableview.frame.size.width, self.tableview.frame.size.height)];
+        [noDataFound_label setFont:[UIFont fontWithName:Halvetica size:15]];
+        [noDataFound_label setTextColor:[UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]];
+        noDataFound_label.numberOfLines=0;
+        noDataFound_label.textAlignment=NSTextAlignmentCenter;
+        [noDataFound_label sizeToFit];
+        noDataFound_label.text=errorMessage;
+        self.tableview.backgroundView = noDataFound_label;
+        return 0;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
@@ -75,9 +148,10 @@
     if (!cell) {
         cell = [[EmployeesViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EmployeesViewCell"];
     }
+    NSDictionary *empDict = [employeesList objectAtIndex:indexPath.row];
     cell.profilePicView.layer.cornerRadius = 20;
-    cell.profilePicView.image = [UIImage imageNamed:@"mybusiness"];
-    cell.nameLabel.text = [NSString stringWithFormat:@"My Name : %ld",(long)indexPath.row];
+    cell.profilePicView.image = [UIImage imageNamed:@"profilepic"];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@",[empDict objectForKey:@"firstName"]];
     return cell;
 }
 /*

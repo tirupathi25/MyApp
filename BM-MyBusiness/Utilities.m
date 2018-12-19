@@ -418,6 +418,55 @@
 //    }
 }
 
+- (NSString *)hexStringFromColor:(UIColor *)color {
+    const CGFloat *components = CGColorGetComponents(color.CGColor);
+    
+    CGFloat r = components[0];
+    CGFloat g = components[1];
+    CGFloat b = components[2];
+    
+    return [NSString stringWithFormat:@"#%02lX%02lX%02lX",
+            lroundf(r * 255),
+            lroundf(g * 255),
+            lroundf(b * 255)];
+}
+
+- (UIColor *) colorWithHexString: (NSString *) hexString
+{
+    NSString *colorString = [[hexString stringByReplacingOccurrencesOfString: @"#" withString: @""] uppercaseString];
+    
+    NSLog(@"colorString :%@",colorString);
+    CGFloat alpha, red, blue, green;
+    
+    // #RGB
+    alpha = 1.0f;
+    red   = [self colorComponentFrom: colorString start: 0 length: 2];
+    green = [self colorComponentFrom: colorString start: 2 length: 2];
+    blue  = [self colorComponentFrom: colorString start: 4 length: 2];
+    
+    return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+}
+
+- (CGFloat) colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length {
+    NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
+    NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];
+    unsigned hexComponent;
+    [[NSScanner scannerWithString: fullHex] scanHexInt: &hexComponent];
+    return hexComponent / 255.0;
+}
+-(NSNumber *)convertTiemToMinutes:(NSDate *)selecteddate{
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:selecteddate];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    NSInteger finalMinutes = hour*60 + minute;
+    
+    return [NSNumber numberWithInteger:finalMinutes];
+    
+}
+//converr to string
 -(NSString *)convertToString:(id)convert
 {
     return [NSString stringWithFormat:@"%@",convert];

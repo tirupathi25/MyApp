@@ -59,6 +59,9 @@
 -(void)showTostAlert:(NSString *)message andInView:(UIView *)view;
 
 -(NSString *)convertToString:(id)convert;
-    
+
+- (UIColor *)colorWithHexString: (NSString *) hexString;
+- (NSString *)hexStringFromColor:(UIColor *)color;
+-(NSNumber *)convertTiemToMinutes:(NSDate *)selecteddate;
 @end
 

@@ -11,6 +11,7 @@
 #import "ServiceCategoryCell.h"
 #import "ServicesCategoryModel.h"
 #import "ServiceCategoryView.h"
+#import "ServicesModel.h"
 #import "Defines.h"
 #import "Utilities.h"
 #import "MyBusinessAPI.h"
@@ -24,6 +25,8 @@
 {
     NSString *errorMessage;
     NSMutableArray *serviceCategoriesList;
+    NSInteger selectedIndex;
+    
 
 }
 - (void)viewDidLoad {
@@ -36,25 +39,33 @@
     self.tableview.dataSource = self;
     
     
+    selectedIndex = -1;
+    
+    
+    
     [self.tableview registerNib:[UINib nibWithNibName:@"ServiceCategoryHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:@"servicesheader"];
     
     self.tableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableview.backgroundColor = gray_color;
     
-    // create custom menu button with image
-    UIButton *menu_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    menu_btn.frame = CGRectMake(0, 0,50, 50);
-    [menu_btn setImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
-    [menu_btn addTarget:self action:@selector(tapMenu:) forControlEvents:UIControlEventTouchUpInside];
-    menu_btn.imageEdgeInsets = UIEdgeInsetsMake(0, menuBtnXval, 0, 0);
-    NSLayoutConstraint *widthconstraint = [menu_btn.widthAnchor constraintEqualToConstant:45];
-    NSLayoutConstraint *heightconstraint = [menu_btn.heightAnchor constraintEqualToConstant:45];
-    [widthconstraint setActive:YES];
-    [heightconstraint setActive:YES];
+    if (!self.from_business_creation) {
+        
+        // create custom menu button with image
+        UIButton *menu_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        menu_btn.frame = CGRectMake(0, 0,50, 50);
+        [menu_btn setImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
+        [menu_btn addTarget:self action:@selector(tapMenu:) forControlEvents:UIControlEventTouchUpInside];
+        menu_btn.imageEdgeInsets = UIEdgeInsetsMake(0, menuBtnXval, 0, 0);
+        NSLayoutConstraint *widthconstraint = [menu_btn.widthAnchor constraintEqualToConstant:45];
+        NSLayoutConstraint *heightconstraint = [menu_btn.heightAnchor constraintEqualToConstant:45];
+        [widthconstraint setActive:YES];
+        [heightconstraint setActive:YES];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menu_btn];
+        self.revealViewController.panGestureRecognizer.enabled = YES;
+    }
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menu_btn];
-    self.revealViewController.panGestureRecognizer.enabled = YES;
     
     //method to get service categories
     [self getServiceCategories];
@@ -72,7 +83,7 @@
         
         [UTILITIES showHud:self.view withText:@"Loading.."];
         // API call tpo get members
-        [[MyBusinessAPI sharedTrxadeAPIClient] getCall:[NSString stringWithFormat:@"%@/%@",GET_BUSINESS_SERVICE_CATEGORIES,@"5bd1b73f44a22852c1e4c65f"] withParameters:nil block:^(id responseObject, NSError *error) {
+        [[MyBusinessAPI sharedTrxadeAPIClient] getCall:[NSString stringWithFormat:@"%@/%@",GET_BUSINESS_SERVICE_CATEGORIES,self.businessId] withParameters:nil block:^(id responseObject, NSError *error) {
             
             [UTILITIES hideHUDInView:self.view];
             if (error) {
@@ -98,6 +109,11 @@
                                 [model setType:[UTILITIES convertToString:[dict objectForKey:@"type"]]];
                                 [model setCategoryID:[UTILITIES convertToString:[dict objectForKey:@"id"]]];
                                 NSArray *services = [dict objectForKey:@"service"];
+                                if (services.count != 0) {
+                                    ServicesModel *service = [ServicesModel new];
+                                    
+                                }
+                                
                                 [model setServices:services];
                                 
                                 [self->serviceCategoriesList addObject:model];
@@ -148,6 +164,9 @@
         ServiceCategoryView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"ServiceCategoryHeader" owner:self options:nil] objectAtIndex:0];
         ServicesCategoryModel *model = [serviceCategoriesList objectAtIndex:section];
         headerView.nameLabel.text = [model name];
+        headerView.colorButton.backgroundColor = [model.colorId containsString:@"#"] ? [UTILITIES colorWithHexString:model.colorId] : [UIColor whiteColor];
+        headerView.colorButton.tag = section;
+        [headerView.colorButton addTarget:self action:@selector(handleSelectColor:) forControlEvents:UIControlEventTouchUpInside];
         
         CGRect newFrame=headerView.frame;
         newFrame.size=CGSizeMake(self.view.frame.size.width, 50);
@@ -158,12 +177,37 @@
         
         headerView.layer.borderColor = gray_color.CGColor;
         headerView.layer.borderWidth = 1;
+        headerView.tag = section;
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleExpandList:)];
+        tapGesture.numberOfTapsRequired = 1;
+        headerView.userInteractionEnabled = YES;
+        [headerView addGestureRecognizer:tapGesture];
         [head addSubview:headerView];
         return head;
     }
     
 }
+-(void)handleSelectColor:(UIButton *)sender{
+    
+    NSLog(@"%ld",(long)sender.tag);
+}
+-(void)handleExpandList:(UITapGestureRecognizer *)sender{
+    
+    UIView *view = sender.view;
+    
+    if (selectedIndex == view.tag) {
 
+        selectedIndex = -1;
+
+    } else {
+        
+        selectedIndex = view.tag;
+    }
+
+    [self.tableview reloadData];
+    
+    
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return serviceCategoriesList.count;
 }
@@ -173,8 +217,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    
+
     if ([[serviceCategoriesList objectAtIndex:indexPath.section] services].count == indexPath.row) {
         
         ServiceCategoryCell *Addcell = [tableView dequeueReusableCellWithIdentifier:@"AddServiceCategoryCell"];
@@ -198,12 +241,25 @@
     
 
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([[serviceCategoriesList objectAtIndex:indexPath.section] services].count == indexPath.row) {
-        return 62;
-    }else{
-        return 50;
+    if (selectedIndex == indexPath.section) {
+        
+        if ([[serviceCategoriesList objectAtIndex:indexPath.section] services].count == indexPath.row) {
+            return 62;
+        }else{
+            return 50;
+        }
+        
+    } else {
+        return 0;
     }
+    
 }
 /*
 #pragma mark - Navigation

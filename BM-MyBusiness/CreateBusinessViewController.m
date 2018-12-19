@@ -7,7 +7,9 @@
 //
 
 #import "CreateBusinessViewController.h"
+#import "ServiceCategoriesViewController.h"
 #import "LGAlertView.h"
+#import "SharedData.h"
 #import "Defines.h"
 #import "Utilities.h"
 @interface CreateBusinessViewController ()
@@ -15,9 +17,16 @@
 @end
 
 @implementation CreateBusinessViewController
-
+{
+    NSNumber *sundayFromTime,*mondayFromTime,*tuesdayFromTime,*wednesdayFromTime,*fridayFromTime,*thursdayFromTime,*saturdayFromTime,*sundayToTime,*mondayToTime,*tuesdayToTime,*wednesdayToTime,*fridayToTime,*thursdayToTime,*saturdayToTime;
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    sundayFromTime=mondayFromTime=tuesdayFromTime=wednesdayFromTime=fridayFromTime=thursdayFromTime=saturdayFromTime=sundayToTime=mondayToTime=tuesdayToTime=wednesdayToTime=fridayToTime=thursdayToTime=saturdayToTime=[NSNumber numberWithInteger:0];
     
   
     self.primaryDetailsView.layer.cornerRadius = self.otherDetailsView.layer.cornerRadius = self.businesshoursView.layer.cornerRadius = 6;
@@ -214,6 +223,64 @@
 -(void)handleCreateBusiness{
     
     
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY] forKey:@"publisherId"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.selectedBusinessId  forKey:@"businessId"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.bussinessNameField.text forKey:@"name"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:@"" forKey:@"icon" ];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.address1Field.text forKey:@"address1" ];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.address2Field.text forKey:@"address2" ];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.cityField.text forKey:@"city" ];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.stateLabel.text  forKey:@"state"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.countryLabel.text forKey:@"currencyCode"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.zipCodeField.text forKey:@"zipCode"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.phoneNumberField.text forKey:@"phone"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.emailField.text forKey:@"email"];
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:self.numberOfEmployeesField.text forKey:@"noOfEmployees"];
+    NSLog(@"%@",[NSNumber numberWithBool:self.sundayHolidayBox.selected]);
+    [[SHAREDDATA createBusiness_data_dictionary] setObject:@{
+  @"1":@{
+          @"open":_sundayHolidayBox.selected ? @0 : sundayFromTime,
+          @"close": _sundayHolidayBox.selected ? @0 : sundayToTime,
+          @"holiday": [NSNumber numberWithBool:self.sundayHolidayBox.selected]
+          },
+ @"2": @{
+         @"open":_mondayHolidayBox.selected ? @0 : mondayFromTime,
+         @"close":_mondayHolidayBox.selected ? @0 : mondayToTime,
+         @"holiday": [NSNumber numberWithBool:self.mondayHolidayBox.selected]
+         },
+ @"3": @{
+         @"open": _tuesdayHolidayBox.selected ? @0 : tuesdayFromTime,
+         @"close": _tuesdayHolidayBox.selected ? @0 : tuesdayToTime,
+         @"holiday": [NSNumber numberWithBool:self.tuesdayHolidayBox.selected]
+         },
+ @"4": @{
+         @"open": _wednsdayHolidayBox.selected ? @0 : wednesdayFromTime,
+         @"close": _wednsdayHolidayBox.selected ? @0 : wednesdayToTime,
+         @"holiday": [NSNumber numberWithBool:self.wednsdayHolidayBox.selected]
+         },
+ @"5": @{
+         @"open": _thursdayHolidayBox.selected ? @0 : thursdayFromTime,
+         @"close": _thursdayHolidayBox.selected ? @0 : thursdayToTime,
+         @"holiday": [NSNumber numberWithBool:self.thursdayHolidayBox.selected]
+         },
+ @"6": @{
+         @"open": _fridayHolidayBox.selected ? @0 : fridayFromTime,
+         @"close": _fridayHolidayBox.selected ? @0 : fridayToTime,
+         @"holiday": [NSNumber numberWithBool:self.fridayHolidayBox.selected]
+         },
+ @"7": @{
+         @"open": _saturdayHolidayBox.selected ? @0 : saturdayFromTime,
+         @"close": _saturdayHolidayBox.selected ? @0 : saturdayToTime,
+         @"holiday": [NSNumber numberWithBool:self.saturdayHolidayBox.selected]
+         }
+ } forKey:@"businessHours"];
+    
+
+    ServiceCategoriesViewController *serviceView = [STORYBOARD instantiateViewControllerWithIdentifier:@"ServiceCategoriesViewController"];
+    serviceView.from_business_creation = YES;
+    serviceView.businessId = self.selectedBusinessId;
+    [self.navigationController pushViewController:serviceView animated:YES];
+    
 }
 //upload image
 -(void)handleUploadImage{
@@ -311,8 +378,36 @@
     
     
     LGAlertView *timeAlertView = [[LGAlertView alloc] initWithViewAndTitle:@"" message:@"" style:LGAlertViewStyleAlert view:datePicker buttonTitles:@[@"Add"] cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil actionHandler:^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title) {
-        ;
+        
+        
         label.text = [UTILITIES convertDateFrom24To12HoursFormat:datePicker.date];
+        
+        
+        switch (label.tag) {
+            case 1:
+                self->sundayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 2:
+                self->mondayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 3:
+                self->tuesdayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 4:
+                self->wednesdayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 5:
+                self->thursdayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 6:
+                self->fridayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 7:
+                self->saturdayFromTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            default:
+                break;
+        }
         
     } cancelHandler:nil destructiveHandler:nil];
     
@@ -333,8 +428,36 @@
     
     
     LGAlertView *timeAlertView = [[LGAlertView alloc] initWithViewAndTitle:@"" message:@"" style:LGAlertViewStyleAlert view:datePicker buttonTitles:@[@"Add"] cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil actionHandler:^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title) {
-        ;
+        
         label.text = [UTILITIES convertDateFrom24To12HoursFormat:datePicker.date];
+        
+        switch (label.tag) {
+            case 1:
+                self->sundayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 2:
+                self->mondayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 3:
+                self->tuesdayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 4:
+                self->wednesdayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 5:
+                self->thursdayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 6:
+                self->fridayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            case 7:
+                self->saturdayToTime = [UTILITIES convertTiemToMinutes:datePicker.date];
+                break;
+            default:
+                break;
+        }
+        
+        
         
     } cancelHandler:nil destructiveHandler:nil];
     

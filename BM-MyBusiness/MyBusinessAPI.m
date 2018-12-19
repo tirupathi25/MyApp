@@ -30,7 +30,7 @@
 // getcall method with authentication
 -(void)getCall:(NSString *)url withParameters:(NSDictionary *)parameters block:(void (^)(id, NSError *))block
 {
-    [self.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY] forHTTPHeaderField:AUTH_KEY];
+//    [self.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY] forHTTPHeaderField:AUTH_KEY];
     
     [self GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         block(responseObject,nil);

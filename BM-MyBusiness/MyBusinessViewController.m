@@ -17,6 +17,11 @@
 #import "BusinessTemplatesViewController.h"
 #import "ServiceCategoriesViewController.h"
 #import "Defines.h"
+#import "SharedData.h"
+#import "Utilities.h"
+#import "MyBusinessAPI.h"
+#import "APICalls.h"
+#import "BusinessesModel.h"
 @interface MyBusinessViewController ()<MenuDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end
@@ -25,13 +30,16 @@
     {
         
         NSInteger selectedIndex;
+        NSString *errorMessage;
+        NSMutableArray *publisherBusinessList;
     }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     
-    selectedIndex = -1;
+    selectedIndex = 0;
+    publisherBusinessList = [NSMutableArray new];
     
         // create custom menu button with image
         UIButton *menu_btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -55,8 +63,72 @@
     self.collectionview.delegate = self;
     self.collectionview.dataSource = self;
     
+    
+    [self getPublisherBusinesses];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+}
+-(void)getPublisherBusinesses{
+    // check network connection
+    if ([UTILITIES connected]) {
+        
+        [UTILITIES showHud:self.view withText:@"Loading.."];
+        // API call tpo get members
+        [[MyBusinessAPI sharedTrxadeAPIClient] getCall:[NSString stringWithFormat:@"%@/%@",GET_PUBLISHER_BUSINESSES,[[NSUserDefaults standardUserDefaults] objectForKey:AUTH_KEY]] withParameters:nil block:^(id responseObject, NSError *error) {
+            
+            [UTILITIES hideHUDInView:self.view];
+            if (error) {
+                [UTILITIES showTostAlert:error.localizedDescription andInView:self.view];
+            } else {
+                
+                if ([[responseObject objectForKey:@"code"] integerValue] == SUCCESS_CODE) {
+                    
+                    NSArray *result = [responseObject objectForKey:@"result"];
+                    
+                    if (result.count != 0) {
+                        NSDictionary *temmpDict = [result objectAtIndex:0];
+                        [[NSUserDefaults standardUserDefaults] setObject:[UTILITIES convertToString:[temmpDict objectForKey:@"id"]] forKey:SELECTED_BUSINESS_ID];
+                        [self->publisherBusinessList removeAllObjects];
+                        for (NSDictionary *dict in result) {
+                            
+                            BusinessesModel *model = [BusinessesModel new];
+                            [model setBusinessID:[UTILITIES convertToString:[dict objectForKey:@"id"]]];
+                            [model setName:[UTILITIES convertToString:[dict objectForKey:@"name"]]];
+                            [model setBusinessDescription:[UTILITIES convertToString:[dict objectForKey:@"description"]]];
+                            [model setIcon:[UTILITIES convertToString:[dict objectForKey:@"icon"]]];
+                            [model setStatus:[UTILITIES convertToString:[dict objectForKey:@"status"]]];
+                            NSArray *ary = [dict objectForKey:@"serviceCategory"];
+                            [model setServiceCategory:ary];
+                            [self->publisherBusinessList addObject:model];
+                        }
+                        
+                    }
+                    
+                    [self.collectionview reloadData];
+                    
+                } else {
+                    
+                    [UTILITIES showTostAlert:[responseObject objectForKey:@"message"] andInView:self.view];
+                    self->errorMessage = [responseObject objectForKey:@"message"];
+                    
+                    [self.collectionview reloadData];
+                }
+                
+                
+            }
+            
+        }];
+        
+    }
+    else
+    {
+        self->errorMessage = CONNECTION_MESSAGE;
+        [UTILITIES showNetworkAlertonView:self];
+        [self.collectionview reloadData];
+    }
+}
 
 // method action to side menu button
 -(void)tapMenu:(UIButton *)sender
@@ -68,15 +140,36 @@
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
-    -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-        return 10;
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
+    if (publisherBusinessList.count != 0) {
+        
+        self.collectionview.backgroundView = nil;
+        return publisherBusinessList.count;
+        
+    } else {
+        
+        UILabel *noDataFound_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.collectionview.frame.size.width, self.collectionview.frame.size.height)];
+        [noDataFound_label setFont:[UIFont fontWithName:Halvetica size:15]];
+        [noDataFound_label setTextColor:[UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0]];
+        noDataFound_label.numberOfLines=0;
+        noDataFound_label.textAlignment=NSTextAlignmentCenter;
+        [noDataFound_label sizeToFit];
+        noDataFound_label.text=errorMessage;
+        self.collectionview.backgroundView = noDataFound_label;
+        return 0;
+    }
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     BusinessCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BusinessCollectionViewCell" forIndexPath:indexPath];
     
-    cell.title_Label.text = [NSString stringWithFormat:@"Hello %ld",(long)indexPath.row];
-    cell.iconView.image = [UIImage imageNamed:@"addbusiness"];
+    BusinessesModel *modelObj = [publisherBusinessList objectAtIndex:indexPath.row];
+    
+    
+    
+    cell.title_Label.text = modelObj.name;
+    cell.iconView.image = [UIImage imageNamed:@"businessicon"];
     if (selectedIndex == indexPath.row) {
         
         cell.bgView.backgroundColor = gray_color;
@@ -87,15 +180,17 @@
         cell.bgView.backgroundColor = white_color;
         cell.bgView.layer.cornerRadius = 0;
     }
-//
+    //
     return cell;
 }
-    -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         selectedIndex = indexPath.row;
+    BusinessesModel *modelObj = [publisherBusinessList objectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:modelObj.businessID forKey:SELECTED_BUSINESS_ID];
         [self.collectionview reloadData];
         
-        CreateBusinessViewController *otpview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
-        [self.navigationController pushViewController:otpview animated:YES];
+//        CreateBusinessViewController *otpview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
+//        [self.navigationController pushViewController:otpview animated:YES];
         
     }
     // this method overrides the changes you have made to inc or dec the size of cell using storyboard.
@@ -105,6 +200,7 @@
 
 #pragma Menu Delegate methods
 -(void)handleMyBusiness{
+    [self getPublisherBusinesses];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 -(void)handleAddBusiness{

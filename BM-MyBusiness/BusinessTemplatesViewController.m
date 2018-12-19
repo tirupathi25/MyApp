@@ -24,8 +24,8 @@
 {
     
     NSInteger selectedIndex;
-    NSString *errorMessage;
-    NSMutableArray *businessTemplatesList;;
+    NSString *errorMessage,*selectedBusinessID;
+    NSMutableArray *businessTemplatesList;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,8 +128,9 @@
 
 -(void)handleAddNewBusiness{
     
-    CreateBusinessViewController *otpview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
-    [self.navigationController pushViewController:otpview animated:YES];
+    CreateBusinessViewController *createBview = [STORYBOARD instantiateViewControllerWithIdentifier:@"CreateBusinessViewController"];
+    createBview.selectedBusinessId = selectedBusinessID;
+    [self.navigationController pushViewController:createBview animated:YES];
 }
 // method action to side menu button
 -(void)tapMenu:(UIButton *)sender
@@ -164,12 +165,13 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     BusinessCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BusinessTemplatesViewCell" forIndexPath:indexPath];
+    
     BusinessesModel *modelObj = [businessTemplatesList objectAtIndex:indexPath.row];
     
     
     
     cell.title_Label.text = modelObj.name;
-    cell.iconView.image = [UIImage imageNamed:@"addbusiness"];
+    cell.iconView.image = [UIImage imageNamed:@"businessicon"];
     if (selectedIndex == indexPath.row) {
         
         cell.bgView.backgroundColor = gray_color;
@@ -184,6 +186,9 @@
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    BusinessesModel *modelObj = [businessTemplatesList objectAtIndex:indexPath.row];
+    selectedBusinessID = [modelObj businessID];
     selectedIndex = indexPath.row;
     [self.collectuionView reloadData];
     self.addBusinessButton.hidden = NO;

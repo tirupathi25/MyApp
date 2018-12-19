@@ -88,7 +88,7 @@ typedef enum : NSUInteger {
 #define AUTH_KEY @"id"
 #define USER_ID @"user_id"
 #define USER_NAME @"username"
-
+#define SELECTED_BUSINESS_ID @"selectedbusinessid"
 
 
 #define Halvetica @"Helvetica Neue"
@@ -108,6 +108,7 @@ typedef enum : NSUInteger {
 #define DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 //Instance for Utilities class
 #define UTILITIES [Utilities sharedInstace]
+#define SHAREDDATA [SharedData sharedInstace]
 
 
 #define REGEX_PHONE @"^[0-9]*$"

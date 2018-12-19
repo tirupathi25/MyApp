@@ -14,7 +14,7 @@
 //business templets
 #define GET_BUSINESS_TEMPLETS @"BusinessMiniatures/business/list"
 #define GET_BUSINESS_SERVICE_CATEGORIES @"BusinessMiniatures/business/servicecategory"
-
+#define GET_PUBLISHER_BUSINESSES @"BusinessMiniatures/publisher/business/list"
 #define SUBSCRIPTION_PLAN @"BusinessMiniatures/subscription/listsubscriptionsettingsforadmin"
-
+#define GET_EMPLOYEES_LIST @"BusinessMiniatures/publisher/employee/list"
 #endif /* APICalls_h */
